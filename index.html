@@ -399,6 +399,71 @@
             }
         }
 
+        /* WhatsApp floating button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .whatsapp-float .wpp-label {
+            background: white;
+            color: #1a5b92;
+            font-weight: 600;
+            font-size: 13px;
+            padding: 8px 14px;
+            border-radius: 20px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+            white-space: nowrap;
+            opacity: 0;
+            transform: translateX(10px);
+            transition: opacity 0.3s, transform 0.3s;
+            pointer-events: none;
+        }
+
+        .whatsapp-float:hover .wpp-label {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .whatsapp-float .wpp-btn {
+            width: 58px;
+            height: 58px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+            transition: transform 0.2s, box-shadow 0.2s;
+            flex-shrink: 0;
+        }
+
+        .whatsapp-float:hover .wpp-btn {
+            transform: scale(1.1);
+            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.6);
+        }
+
+        .whatsapp-float .wpp-btn svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        @keyframes wpp-pulse {
+            0%   { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+            70%  { box-shadow: 0 0 0 14px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        .whatsapp-float .wpp-btn {
+            animation: wpp-pulse 2.4s infinite;
+        }
+
         @media (max-width: 768px) {
             .top-bar {
                 padding: 8px 20px;
@@ -741,6 +806,22 @@
             </p>
         </div>
     </section>
+
+    <a
+        class="whatsapp-float"
+        href="https://wa.me/573235901775?text=Hola%2C%20me%20interesa%20conocer%20las%20soluciones%20de%20Ventilaru%20en%20ventilaci%C3%B3n%20industrial%20y%20control%20de%20contaminantes.%20%C2%BFMe%20pueden%20asesorar%3F"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Contactar por WhatsApp"
+    >
+        <span class="wpp-label">¿Necesitás asesoría? Escribinos</span>
+        <div class="wpp-btn">
+            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M16 2C8.268 2 2 8.268 2 16c0 2.478.649 4.797 1.782 6.808L2 30l7.395-1.745A13.93 13.93 0 0016 30c7.732 0 14-6.268 14-14S23.732 2 16 2z" fill="white"/>
+                <path d="M22.003 19.37c-.3-.15-1.767-.87-2.04-.97-.272-.1-.47-.15-.669.15-.198.298-.769.97-.942 1.17-.174.198-.347.222-.645.074-.298-.15-1.258-.463-2.397-1.48-.885-.79-1.483-1.767-1.657-2.065-.173-.298-.018-.46.13-.608.134-.133.298-.347.447-.52.15-.174.198-.298.298-.497.1-.198.05-.373-.025-.521-.075-.15-.669-1.612-.916-2.207-.241-.579-.486-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.273.298-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.413-.074-.124-.272-.198-.57-.347z" fill="#25D366"/>
+            </svg>
+        </div>
+    </a>
 
     <footer class="footer">
         <p>&copy; 2024 Ventilaru - Ventilación Industrial y Proyectos S.A.S.</p>

@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ventilaru - Soluciones de Ventilación Industrial</title>
+    <style>
+        html { scroll-behavior: smooth; }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .top-bar {
+            background-color: #f0f4f8;
+            padding: 8px 50px;
+            display: flex;
+            justify-content: flex-end;
+            font-size: 13px;
+            color: #555;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .top-bar span {
+            margin-left: 25px;
+            font-weight: 600;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            background: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar img {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        .menu {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .menu a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #444;
+            font-weight: 600;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .menu a:hover {
+            color: #1a5b92;
+        }
+
+        .btn-blue {
+            background: #1a5b92;
+            color: white !important;
+            padding: 11px 24px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+            border: 2px solid #1a5b92;
+            display: inline-block;
+        }
+
+        .btn-blue:hover {
+            background: #134570;
+        }
+
+        .hero {
+            position: relative;
+            background:
+                linear-gradient(to right, rgba(26, 91, 146, 0.94) 28%, rgba(26, 91, 146, 0.78) 100%),
+                url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            min-height: 78vh;
+            display: flex;
+            align-items: center;
+            padding: 70px 10%;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .hero h1 {
+            font-size: 3.4rem;
+            margin-bottom: 18px;
+            line-height: 1.12;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.25);
+        }
+
+        .hero p {
+            font-size: 1.12rem;
+            margin-bottom: 28px;
+            max-width: 620px;
+            color: rgba(255,255,255,0.96);
+        }
+
+        .hero ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 32px 0;
+            font-size: 1.08rem;
+        }
+
+        .hero ul li {
+            margin-bottom: 12px;
+        }
+
+        .hero ul li::before {
+            content: "✓ ";
+            color: #7CFF8A;
+            font-weight: bold;
+            margin-right: 8px;
+            font-size: 1.2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .cards-container {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: -45px;
+            padding: 0 20px;
+            z-index: 10;
+            position: relative;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: white;
+            padding: 25px 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+            text-align: center;
+            width: 260px;
+            font-weight: bold;
+            color: #1a5b92;
+            border-top: 5px solid #1a5b92;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+        }
+
+        .card p {
+            font-size: 14px;
+            color: #666;
+            font-weight: normal;
+            margin-top: 10px;
+            line-height: 1.45;
+        }
+
+        .card-icon {
+            width: 54px;
+            height: 54px;
+            margin-bottom: 14px;
+        }
+
+        section {
+            scroll-margin-top: 110px;
+        }
+
+        .content-section {
+            padding: 80px 10%;
+            background: #fff;
+        }
+
+        .content-section.alt {
+            background: #f7fafc;
+        }
+
+        .section-header {
+            max-width: 850px;
+            margin-bottom: 35px;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            color: #1a5b92;
+            margin: 0 0 12px 0;
+        }
+
+        .section-header p {
+            margin: 0;
+            color: #666;
+            font-size: 1.05rem;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(280px, 1fr));
+            gap: 28px;
+        }
+
+        .info-box {
+            background: #fff;
+            border: 1px solid #e6edf2;
+            border-radius: 12px;
+            padding: 28px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+        }
+
+        .info-box h3 {
+            margin-top: 0;
+            margin-bottom: 14px;
+            color: #1a5b92;
+            font-size: 1.25rem;
+        }
+
+        .info-box p {
+            margin-top: 0;
+            color: #444;
+        }
+
+        .info-box ul {
+            padding-left: 18px;
+            margin: 10px 0 0 0;
+        }
+
+        .info-box li {
+            margin-bottom: 9px;
+        }
+
+        .highlight-list {
+            list-style: none;
+            padding: 0;
+            margin: 16px 0 0 0;
+        }
+
+        .highlight-list li {
+            background: #f5f9fd;
+            border-left: 4px solid #1a5b92;
+            padding: 12px 14px;
+            margin-bottom: 10px;
+            border-radius: 6px;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 30px;
+        }
+
+        .service-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+            border: 1px solid #e8eef3;
+        }
+
+        .service-card h3 {
+            margin-top: 0;
+            color: #1a5b92;
+        }
+
+        .service-card ul {
+            padding-left: 18px;
+            margin-bottom: 0;
+        }
+
+        .clients-box {
+            background: white;
+            border-radius: 12px;
+            padding: 28px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+            border: 1px solid #e8eef3;
+        }
+
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 18px;
+        }
+
+        .tag {
+            background: #eaf3fb;
+            color: #1a5b92;
+            padding: 9px 14px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .experience-box,
+        .blog-box {
+            background: white;
+            border-radius: 12px;
+            padding: 28px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+            border: 1px solid #e8eef3;
+        }
+
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+            align-items: start;
+        }
+
+        .contact-card,
+        .form-card {
+            background: white;
+            border-radius: 12px;
+            padding: 28px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+            border: 1px solid #e8eef3;
+        }
+
+        .contact-card h3,
+        .form-card h3 {
+            margin-top: 0;
+            color: #1a5b92;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #444;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid #cfd9e2;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 14px;
+        }
+
+        .form-group textarea {
+            min-height: 130px;
+            resize: vertical;
+        }
+
+        .footer {
+            background-color: #1f2c37;
+            color: white;
+            padding: 35px 10%;
+            text-align: center;
+        }
+
+        @media (max-width: 1100px) {
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .menu {
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 2.7rem;
+            }
+
+            .grid-2,
+            .service-grid,
+            .contact-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-bar {
+                padding: 8px 20px;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 5px 14px;
+            }
+
+            .top-bar span {
+                margin-left: 0;
+            }
+
+            .navbar {
+                padding: 15px 20px;
+            }
+
+            .navbar img {
+                height: 50px;
+            }
+
+            .menu a {
+                margin: 7px 8px;
+            }
+
+            .hero {
+                padding: 60px 7%;
+                min-height: auto;
+            }
+
+            .hero h1 {
+                font-size: 2.15rem;
+            }
+
+            .content-section {
+                padding: 65px 7%;
+            }
+
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <span>📧 comercial@ventilaru.com</span>
+        <span>📞 +57 (311) 214-6700</span>
+    </div>
+
+    <nav class="navbar">
+        <img src="logo-horizontal.png" alt="Logo Ventilaru">
+
+        <div class="menu">
+            <a href="#inicio">Inicio</a>
+            <a href="#nosotros">Nosotros</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#camfil">Camfil</a>
+            <a href="#clientes">Clientes</a>
+            <a href="#experiencia">Experiencia</a>
+            <a href="#contacto">Contáctanos</a>
+            <a href="#blog">Blog</a>
+        </div>
+    </nav>
+
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h1>Ingeniería precisa que limpia el aire industrial</h1>
+            <p>
+                Ventilaru - Ventilación Industrial y Proyectos S.A.S. desarrolla proyectos de ingeniería
+                enfocados en ventilación industrial, ventilación de laboratorios, ventilación general y
+                exhaustiva, control de ruido y controles de ingeniería para mitigar la exposición a peligros
+                de higiene ocupacional y ambiental.
+            </p>
+            <ul>
+                <li>Protegemos la salud de las personas.</li>
+                <li>Cuidamos el entorno y la rentabilidad de su empresa.</li>
+                <li>Diseñamos soluciones técnicas con enfoque integral y documental.</li>
+            </ul>
+            <div class="hero-buttons">
+                <a href="#servicios" class="btn-blue" style="background: transparent; border: 2px solid white;">Nuestros Servicios</a>
+                <a href="#contacto" class="btn-blue">Cotiza ahora</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="cards-container">
+        <div class="card">
+            <svg class="card-icon" viewBox="0 0 64 64" aria-hidden="true">
+                <rect x="14" y="14" width="36" height="36" rx="5" fill="#eef5fb" stroke="#1a5b92" stroke-width="3"/>
+                <path d="M22 24h20M22 32h20M22 40h20" stroke="#1a5b92" stroke-width="3" stroke-linecap="round"/>
+                <path d="M46 20c4 2 6 5 6 8s-2 6-6 8" fill="none" stroke="#4CAF50" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+            <br>Ventilación General
+            <p>Confort térmico, renovación de aire y control por dilución en áreas industriales.</p>
+        </div>
+
+        <div class="card">
+            <svg class="card-icon" viewBox="0 0 64 64" aria-hidden="true">
+                <rect x="12" y="18" width="12" height="28" rx="3" fill="#eef5fb" stroke="#1a5b92" stroke-width="2.8"/>
+                <rect x="26" y="14" width="12" height="36" rx="3" fill="#eef5fb" stroke="#1a5b92" stroke-width="2.8"/>
+                <rect x="40" y="22" width="12" height="20" rx="3" fill="#eef5fb" stroke="#1a5b92" stroke-width="2.8"/>
+                <path d="M10 52h44" stroke="#4CAF50" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+            <br>Accesorios y Filtración
+            <p>Elementos de purificación, filtración industrial y soluciones complementarias para aire limpio.</p>
+        </div>
+
+        <div class="card">
+            <svg class="card-icon" viewBox="0 0 64 64" aria-hidden="true">
+                <path d="M32 10l18 8v12c0 11-7.5 18.5-18 24-10.5-5.5-18-13-18-24V18l18-8z" fill="#eef5fb" stroke="#1a5b92" stroke-width="3"/>
+                <path d="M24 32l5 5 11-12" fill="none" stroke="#4CAF50" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <br>Gestión de Riesgos
+            <p>Higiene ocupacional, control ambiental y reducción de exposición a contaminantes.</p>
+        </div>
+    </div>
+
+    <section class="content-section" id="nosotros">
+        <div class="section-header">
+            <h2>Nosotros</h2>
+            <p>
+                Soluciones integrales de ingeniería orientadas a la ventilación industrial, el control de contaminantes
+                y la mejora de ambientes de trabajo seguros y sostenibles.
+            </p>
+        </div>
+
+        <div class="grid-2">
+            <div class="info-box">
+                <h3>Quiénes somos</h3>
+                <p>
+                    Somos Ventilaru - Ventilación Industrial y Proyectos S.A.S., una empresa cuyo objeto es el
+                    desarrollo de proyectos de ingeniería enfocados en controles por medio de la ventilación
+                    industrial, ventilación de laboratorios, ventilación general y exhaustiva, control de ruido
+                    y, en general, proyectos que requieran controles de ingeniería para mitigar la exposición
+                    a peligros de higiene ocupacional y ambiental.
+                </p>
+            </div>
+
+            <div class="info-box">
+                <h3>Misión</h3>
+                <p>
+                    Proveer soluciones integrales de ingeniería en ventilación industrial y control de contaminantes,
+                    mediante el diseño y la implementación de sistemas avanzados que garantizan ambientes de trabajo
+                    seguros. En Ventilaru transformamos espacios críticos para proteger la salud de las personas,
+                    preservar el entorno ambiental y potenciar la productividad de nuestros clientes.
+                </p>
+            </div>
+
+            <div class="info-box">
+                <h3>Visión</h3>
+                <p>
+                    Para el año 2030, ser el referente líder en soluciones de ingeniería en control de ventilación
+                    industrial, control de contaminantes químicos, material particulado, humos, neblinas y control
+                    de ruido ambiental e higiene ocupacional a nivel nacional y latinoamericano, reconocidos por
+                    nuestra excelencia técnica y capacidad de innovación.
+                </p>
+            </div>
+
+            <div class="info-box">
+                <h3>Valor agregado</h3>
+                <ul class="highlight-list">
+                    <li>Calidad de proceso con alta precisión en la solución de ingeniería de inicio a fin.</li>
+                    <li>Dossier documental entregable de cada proyecto.</li>
+                    <li>Enfoque técnico, operativo y documental para soporte de decisiones.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section alt" id="servicios">
+        <div class="section-header">
+            <h2>Servicios y productos</h2>
+            <p>
+                Ingeniería aplicada, diseño, fabricación y documentación técnica para proyectos industriales de
+                ventilación, control de contaminantes y manejo de aire.
+            </p>
+        </div>
+
+        <div class="service-grid">
+            <div class="service-card">
+                <h3>Qué hacemos</h3>
+                <ul>
+                    <li>Ventilación industrial.</li>
+                    <li>Ventilación de laboratorios.</li>
+                    <li>Ventilación general y exhaustiva.</li>
+                    <li>Control de ruido.</li>
+                    <li>Controles de ingeniería para higiene ocupacional y ambiental.</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <h3>Dossier documental del proyecto</h3>
+                <ul>
+                    <li>Informe de estudio técnico y caracterización.</li>
+                    <li>Informe de ingeniería conceptual, básica y detallada.</li>
+                    <li>Flujograma de proceso con inventario de puntos de emisión de contaminantes.</li>
+                    <li>Modelado 3D y planos de fabricación y montaje.</li>
+                    <li>Fichas técnicas de equipos y listas de partes, materiales y consumibles.</li>
+                    <li>Manuales de operación y mantenimiento.</li>
+                    <li>Presupuesto CAPEX de fabricación y montaje.</li>
+                    <li>Presupuesto OPEX de mantenibilidad.</li>
+                    <li>Cumplimiento normativo.</li>
+                </ul>
+            </div>
+
+            <div class="service-card" id="camfil">
+                <h3>Alianza con Camfil</h3>
+                <p>
+                    Línea orientada a soluciones de filtración, purificación y control de calidad del aire
+                    con enfoque técnico para ambientes industriales que exigen desempeño, confiabilidad y
+                    protección del proceso.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <h3>Productos</h3>
+                <ul>
+                    <li>Diseño y fabricación de ciclones y multiciclones.</li>
+                    <li>Diseño y fabricación de chimeneas y plataformas de muestreo isocinético.</li>
+                    <li>Sistemas de extracción de material particulado.</li>
+                    <li>Fabricación de ventiladores industriales.</li>
+                    <li>Diseño y fabricación de filtros de mangas.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section" id="clientes">
+        <div class="section-header">
+            <h2>Nuestros clientes</h2>
+            <p>
+                Atendemos sectores productivos que requieren control de contaminantes, ventilación industrial
+                y soluciones de ingeniería para ambientes de trabajo exigentes.
+            </p>
+        </div>
+
+        <div class="clients-box">
+            <strong>Sectores:</strong>
+            <div class="tag-list">
+                <span class="tag">Trilladoras de café</span>
+                <span class="tag">Plantas fertilizantes</span>
+                <span class="tag">Cemento y ladrillos</span>
+                <span class="tag">Metalmecánico</span>
+                <span class="tag">Químicos</span>
+                <span class="tag">Textiles</span>
+                <span class="tag">Plásticos</span>
+                <span class="tag">Farmacéutico</span>
+                <span class="tag">Cosmético</span>
+                <span class="tag">Minero y energético</span>
+                <span class="tag">Manufactura</span>
+                <span class="tag">Procesos industriales</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section alt" id="experiencia">
+        <div class="section-header">
+            <h2>Nuestra experiencia</h2>
+            <p>
+                Desarrollo de soluciones para entornos industriales donde la ingeniería debe responder con
+                precisión técnica, seguridad operativa y documentación clara para fabricación, montaje y mantenimiento.
+            </p>
+        </div>
+
+        <div class="experience-box">
+            <p>
+                Nuestro enfoque combina análisis técnico, diseño, fabricación y puesta en marcha de sistemas
+                orientados al control de contaminantes, ventilación industrial y reducción de riesgos asociados
+                a la exposición ocupacional. Cada proyecto se estructura con soporte documental y visión de
+                desempeño operativo a largo plazo.
+            </p>
+        </div>
+    </section>
+
+    <section class="content-section" id="contacto">
+        <div class="section-header">
+            <h2>Contáctanos</h2>
+            <p>
+                Déjanos tu información para que un asesor se comunique contigo y revise las necesidades
+                técnicas de tu proyecto.
+            </p>
+        </div>
+
+        <div class="contact-layout">
+            <div class="contact-card">
+                <h3>Información de contacto</h3>
+                <p><strong>Correo:</strong> comercial@ventilaru.com</p>
+                <p><strong>Teléfono:</strong> +57 (311) 214-6700</p>
+                <p>
+                    Cuéntanos el tipo de necesidad que tienes: ventilación industrial, control de ruido,
+                    filtración, extracción de material particulado, diseño de equipos o ingeniería aplicada
+                    a higiene ocupacional y ambiental.
+                </p>
+            </div>
+
+            <div class="form-card">
+                <h3>Formulario de contacto</h3>
+                <form>
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="empresa">Empresa</label>
+                        <input type="text" id="empresa" name="empresa" placeholder="Nombre de la empresa">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="correo">Correo electrónico</label>
+                        <input type="email" id="correo" name="correo" placeholder="tu@correo.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos brevemente tu requerimiento"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-blue">Enviar información</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section alt" id="blog">
+        <div class="section-header">
+            <h2>Blog</h2>
+            <p>
+                Espacio destinado a compartir información técnica del negocio, tendencias, buenas prácticas
+                y contenido relacionado con ventilación industrial, filtración y control ambiental.
+            </p>
+        </div>
+
+        <div class="blog-box">
+            <p>
+                Aquí se relacionará información técnica de interés para clientes, aliados y sectores industriales
+                que buscan criterios claros para la toma de decisiones en proyectos de calidad del aire, control
+                de contaminantes, ventilación de procesos y cumplimiento técnico.
+            </p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2024 Ventilaru - Ventilación Industrial y Proyectos S.A.S.</p>
+    </footer>
+
+</body>
+</html>
